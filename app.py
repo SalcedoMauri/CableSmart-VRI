@@ -143,12 +143,24 @@ def generar_pdf(datos, chart_path):
 # ==============================================================================
 # CONFIGURACIÓN UI Y CSS 
 # ==============================================================================
+# ==============================================================================
+# CONFIGURACIÓN UI Y CSS 
+# ==============================================================================
 st.set_page_config(page_title="CableSmart - Análisis N2XSY", layout="centered")
 
 st.markdown("""
     <style>
+    /* 1. Ocultar la propaganda y botones por defecto de Streamlit */
     #MainMenu {visibility: hidden;} footer {visibility: hidden;} header {visibility: hidden;}
-    .stApp { background-color: #F8F9FA; }
+    .viewerBadge_container__1QSob, .styles_viewerBadge__1yB5_, [data-testid="stAppViewContainer"] > div:last-child { display: none !important; }
+    
+    /* 2. Forzar Modo Claro (Textos oscuros, fondos blancos) para evitar letras invisibles en celulares */
+    .stApp { background-color: #F8F9FA !important; color: #1E293B !important; }
+    p, label, span, h1, h2, h3 { color: #1E293B !important; }
+    div[data-baseweb="input"] > div, div[data-baseweb="select"] > div { background-color: #ffffff !important; border-color: #cbd5e1 !important; }
+    div[data-baseweb="input"] input, div[data-baseweb="select"] div { color: #000000 !important; }
+    
+    /* 3. Estilos de casillas y botones */
     button[title="Step up"], button[title="Step down"], button[aria-label="Step up"], button[aria-label="Step down"], div[data-testid="stNumberInputContainer"] button { display: none !important; }
     input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none !important; margin: 0 !important; }
     input[type=number] { -moz-appearance: textfield !important; }
