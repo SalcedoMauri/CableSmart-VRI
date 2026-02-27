@@ -146,6 +146,7 @@ def generar_pdf(datos, chart_path):
 st.set_page_config(page_title="CableSmart - Análisis N2XSY", layout="centered")
 
 st.markdown("""
+    st.info("🚀 **Versión Beta 1.0:** Esta herramienta se encuentra en fase de pruebas. Agradecemos su comprensión y feedback.")
     <style>
     /* 1. Ocultar menús por defecto de Streamlit */
     #MainMenu {visibility: hidden;} footer {visibility: hidden;} header {visibility: hidden;}
