@@ -80,7 +80,6 @@ def generar_pdf(datos, chart_path):
     pdf.set_font("Arial", 'B', 14)
     pdf.cell(200, 10, txt="REPORTE DE INVESTIGACIÓN: SELECCIÓN DE CABLES N2XSY", ln=True, align='C')
     pdf.set_font("Arial", 'I', 10)
-    pdf.cell(200, 5, txt="Vicerrectorado de Investigación - Universidad Nacional de Ingeniería (UNI)", ln=True, align='C')
     pdf.ln(5)
 
     pdf.set_font("Arial", 'B', 12)
