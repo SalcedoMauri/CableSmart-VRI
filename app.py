@@ -143,20 +143,16 @@ def generar_pdf(datos, chart_path):
 # ==============================================================================
 # CONFIGURACIÓN UI Y CSS 
 # ==============================================================================
-# ==============================================================================
-# CONFIGURACIÓN UI Y CSS 
-# ==============================================================================
 st.set_page_config(page_title="CableSmart - Análisis N2XSY", layout="centered")
 
 st.markdown("""
     <style>
-    /* 1. Ocultar la propaganda y botones por defecto de Streamlit */
+    /* 1. Ocultar menús por defecto de Streamlit (sin romper la app) */
     #MainMenu {visibility: hidden;} footer {visibility: hidden;} header {visibility: hidden;}
-    .viewerBadge_container__1QSob, .styles_viewerBadge__1yB5_, [data-testid="stAppViewContainer"] > div:last-child { display: none !important; }
     
-    /* 2. Forzar Modo Claro (Textos oscuros, fondos blancos) para evitar letras invisibles en celulares */
+    /* 2. Forzar Modo Claro (Textos oscuros, fondos blancos) para el celular */
     .stApp { background-color: #F8F9FA !important; color: #1E293B !important; }
-    p, label, span, h1, h2, h3 { color: #1E293B !important; }
+    p, label, span, h1, h2, h3, div { color: #1E293B !important; }
     div[data-baseweb="input"] > div, div[data-baseweb="select"] > div { background-color: #ffffff !important; border-color: #cbd5e1 !important; }
     div[data-baseweb="input"] input, div[data-baseweb="select"] div { color: #000000 !important; }
     
