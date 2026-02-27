@@ -70,7 +70,7 @@ class PDF(FPDF):
         self.set_font('Arial', 'B', 35)
         self.set_text_color(240, 240, 240)
         for y in range(40, 290, 60):
-            self.text(15, y, 'VRI UNI - INVESTIGACIÓN REFERENCIAL')
+            self.text(15, y, 'INVESTIGACIÓN REFERENCIAL')
         self.set_text_color(0, 0, 0)
 
 def generar_pdf(datos, chart_path):
@@ -116,7 +116,7 @@ def generar_pdf(datos, chart_path):
     pdf.ln(3)
 
     pdf.set_font("Arial", 'B', 12)
-    pdf.cell(200, 8, txt="4. INDICADORES Y REDUCCIÓN DE CO2 (VRI)", ln=True)
+    pdf.cell(200, 8, txt="4. INDICADORES Y REDUCCIÓN DE CO2", ln=True)
     pdf.set_font("Arial", '', 10)
     pdf.cell(100, 6, txt=f"Payback Simple: {datos['res_payback']} años")
     pdf.cell(100, 6, txt=f"TIR Estimada: {datos['res_tir']} %", ln=True)
@@ -135,8 +135,8 @@ def generar_pdf(datos, chart_path):
     pdf.cell(200, 6, txt="5. CONTACTO PARA CONSULTORÍA Y ASESORÍA ESPECIALIZADA", ln=True)
     pdf.set_font("Arial", '', 10)
     pdf.set_text_color(0, 0, 0)
-    pdf.cell(200, 6, txt="Ing. Mauricio Salcedo | Ingeniero Electrónico - Especialista en Aplicaciones", ln=True)
-    pdf.cell(200, 6, txt="Correo: msalcedos@uni.pe | Celular / WhatsApp: 943 352 587", ln=True)
+    pdf.cell(200, 6, txt="Ing. Mauricio Salcedo | Ingeniero Electricista - Especialista en Aplicaciones", ln=True)
+    pdf.cell(200, 6, txt="Correo: mauricio.ladderperu@gmail.com | Celular / WhatsApp: 977 156 713", ln=True)
 
     return pdf.output(dest='S').encode('latin-1')
 
@@ -225,9 +225,9 @@ llave_maestra = st.query_params.get("admin") == "mauricio"
 if llave_maestra:
     with st.container(border=True):
         st.success("🔓 **MODO ADMINISTRADOR ACTIVADO**")
-        modo = st.radio("Seleccione el entorno de trabajo:", ["👨‍💻 Modo Personal (Interactivo)", "🎓 Modo VRI (Investigación)"], horizontal=True)
+        modo = st.radio("Seleccione el entorno de trabajo:", ["👨‍💻 Modo Personal (Interactivo)", "🎓 Modo (Investigación)"], horizontal=True)
 else:
-    modo = "🎓 Modo VRI (Investigación)"
+    modo = "🎓 Modo (Investigación)"
 
 st.markdown("<hr style='margin-top: 0;'>", unsafe_allow_html=True)
 
@@ -235,7 +235,7 @@ if modo == "👨‍💻 Modo Personal (Interactivo)":
     st.markdown("<h2 style='text-align: center; color: #1E293B; font-size: 22px;'>Cálculo Interactivo en Tiempo Real</h2>", unsafe_allow_html=True)
 else:
     st.markdown("<h2 style='text-align: center; color: #1E293B; font-size: 22px;'>Recopilación de Datos - Investigación Huella de Carbono</h2>", unsafe_allow_html=True)
-    st.markdown("<p style='text-align: center; color: #64748B; margin-bottom: 30px;'>Vicerrectorado de Investigación (VRI) - UNI</p>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: center; color: #64748B; margin-bottom: 30px;'>Investigación</p>", unsafe_allow_html=True)
 
 # ==============================================================================
 # ENTRADAS UI (FIJAS PARA AMBOS MODOS)
@@ -378,7 +378,7 @@ if modo == "👨‍💻 Modo Personal (Interactivo)":
     with st.container(border=True):
         st.metric("Impacto Ambiental (Reducción de CO2)", f"{format_decimal_custom(co2_red)} t / año")
 
-elif modo == "🎓 Modo VRI (Investigación)":
+elif modo == "🎓 Modo (Investigación)":
 
     if not st.session_state.otp_enviado and not st.session_state.pdf_listo:
         if st.button("Ingresar Datos de Registro para Procesar", use_container_width=True):
@@ -389,7 +389,7 @@ elif modo == "🎓 Modo VRI (Investigación)":
             with st.container(border=True):
                 st.markdown("### 📝 Registro del Investigador / Usuario")
 
-                with st.form("form_vri"):
+                with st.form("form"):
                     col_f1, col_f2 = st.columns(2)
                     f_nombre = col_f1.text_input("Nombre y Apellidos")
                     f_profesion = col_f2.text_input("Profesión / Facultad")
@@ -505,9 +505,9 @@ elif modo == "🎓 Modo VRI (Investigación)":
     if st.session_state.pdf_listo and st.session_state.pdf_bytes:
         st.success("✅ ¡Correo validado y datos registrados exitosamente!")
         st.download_button(
-            label="📥 DESCARGAR REPORTE VRI (RESULTADOS + GRÁFICO)",
+            label="📥 DESCARGAR REPORTE (RESULTADOS + GRÁFICO)",
             data=st.session_state.pdf_bytes,
-            file_name="Reporte_VRI_UNI.pdf",
+            file_name="Reporte.pdf",
             mime="application/pdf",
             type="primary",
             use_container_width=True
