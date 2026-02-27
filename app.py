@@ -147,16 +147,27 @@ st.set_page_config(page_title="CableSmart - Análisis N2XSY", layout="centered")
 
 st.markdown("""
     <style>
-    /* 1. Ocultar menús por defecto de Streamlit (sin romper la app) */
+    /* 1. Ocultar menús por defecto de Streamlit */
     #MainMenu {visibility: hidden;} footer {visibility: hidden;} header {visibility: hidden;}
     
-    /* 2. Forzar Modo Claro (Textos oscuros, fondos blancos) para el celular */
-    .stApp { background-color: #F8F9FA !important; color: #1E293B !important; }
+    /* 2. Forzar Modo Claro General */
+    .stApp { background-color: #F8F9FA !important; }
     p, label, span, h1, h2, h3, div { color: #1E293B !important; }
-    div[data-baseweb="input"] > div, div[data-baseweb="select"] > div { background-color: #ffffff !important; border-color: #cbd5e1 !important; }
-    div[data-baseweb="input"] input, div[data-baseweb="select"] div { color: #000000 !important; }
     
-    /* 3. Estilos de casillas y botones */
+    /* 3. Cajas de texto y selectores (Fondos blancos) */
+    div[data-baseweb="input"] > div, div[data-baseweb="select"] > div { background-color: #ffffff !important; border-color: #cbd5e1 !important; }
+    
+    /* 4. Solución a los valores tenues (Placeholders) */
+    input { color: #000000 !important; font-weight: 500 !important; }
+    input::placeholder { color: #64748B !important; opacity: 1 !important; }
+    div[data-baseweb="select"] div { color: #000000 !important; }
+    
+    /* 5. Solución a la "mancha negra" del menú desplegable */
+    div[data-baseweb="popover"] ul, div[role="listbox"], ul[data-baseweb="menu"] { background-color: #ffffff !important; }
+    li[role="option"] { color: #000000 !important; background-color: #ffffff !important; }
+    li[role="option"]:hover { background-color: #E2E8F0 !important; }
+    
+    /* 6. Estilos de botones y ocultar flechas de números */
     button[title="Step up"], button[title="Step down"], button[aria-label="Step up"], button[aria-label="Step down"], div[data-testid="stNumberInputContainer"] button { display: none !important; }
     input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none !important; margin: 0 !important; }
     input[type=number] { -moz-appearance: textfield !important; }
