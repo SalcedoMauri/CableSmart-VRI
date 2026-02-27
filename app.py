@@ -151,28 +151,60 @@ st.markdown("""
     #MainMenu {visibility: hidden;} footer {visibility: hidden;} header {visibility: hidden;}
     
     /* 2. Forzar Modo Claro General */
-    .stApp { background-color: #F8F9FA !important; }
+    .stApp, .stApp > header { background-color: #F8F9FA !important; }
     p, label, span, h1, h2, h3, div { color: #1E293B !important; }
     
-    /* 3. Cajas de texto y selectores (Fondos blancos) */
-    div[data-baseweb="input"] > div, div[data-baseweb="select"] > div { background-color: #ffffff !important; border-color: #cbd5e1 !important; }
+    /* 3. Cajas de números, textos cortos, textos largos (Observaciones) y selectores */
+    div[data-baseweb="input"] > div, 
+    div[data-baseweb="select"] > div,
+    div[data-baseweb="textarea"] > div { 
+        background-color: #ffffff !important; 
+        border: 1px solid #cbd5e1 !important; 
+    }
     
-    /* 4. Solución a los valores tenues (Placeholders) */
-    input { color: #000000 !important; font-weight: 500 !important; }
-    input::placeholder { color: #64748B !important; opacity: 1 !important; }
-    div[data-baseweb="select"] div { color: #000000 !important; }
+    /* 4. Solución a Valores Tenues (Placeholders) forzando al motor WebKit del celular */
+    input, textarea, div[data-baseweb="select"] div { 
+        color: #000000 !important; 
+        -webkit-text-fill-color: #000000 !important; 
+    }
+    input::placeholder, textarea::placeholder { 
+        color: #8D99AE !important; 
+        opacity: 1 !important; 
+        -webkit-text-fill-color: #8D99AE !important; 
+    }
     
-    /* 5. Solución a la "mancha negra" del menú desplegable */
-    div[data-baseweb="popover"] ul, div[role="listbox"], ul[data-baseweb="menu"] { background-color: #ffffff !important; }
-    li[role="option"] { color: #000000 !important; background-color: #ffffff !important; }
-    li[role="option"]:hover { background-color: #E2E8F0 !important; }
+    /* 5. Solución a la lista del menú desplegable */
+    div[data-baseweb="popover"] > div, ul[data-baseweb="menu"], div[role="listbox"] { 
+        background-color: #ffffff !important; 
+    }
+    li[role="option"] { 
+        color: #000000 !important; 
+        background-color: #ffffff !important; 
+    }
+    li[role="option"]:hover, li[role="option"][aria-selected="true"] { 
+        background-color: #E2E8F0 !important; 
+    }
     
-    /* 6. Estilos de botones y ocultar flechas de números */
+    /* 6. Solución al Checkbox y al Botón Final */
+    div[data-testid="stCheckbox"] div[data-baseweb="checkbox"] > div {
+        background-color: #ffffff !important;
+        border-color: #cbd5e1 !important;
+    }
+    .stButton > button { 
+        background-color: #0F62FE !important; 
+        color: #ffffff !important; 
+        -webkit-text-fill-color: #ffffff !important;
+        font-weight: bold !important; 
+        border-radius: 8px !important; 
+        border: none !important; 
+        padding: 10px 0 !important; 
+    }
+    
+    /* 7. Ocultar flechas de números y redondear bloques */
     button[title="Step up"], button[title="Step down"], button[aria-label="Step up"], button[aria-label="Step down"], div[data-testid="stNumberInputContainer"] button { display: none !important; }
     input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none !important; margin: 0 !important; }
     input[type=number] { -moz-appearance: textfield !important; }
     div[data-testid="stVerticalBlockBorderWrapper"] { border: 1px solid #E2E8F0 !important; background-color: white !important; border-radius: 10px !important; padding: 15px !important; box-shadow: 0px 2px 4px rgba(0,0,0,0.05) !important; }
-    .stButton > button { background-color: #0F62FE !important; color: white !important; font-weight: bold !important; border-radius: 8px !important; border: none !important; padding: 10px 0 !important; }
     </style>
 """, unsafe_allow_html=True)
 
