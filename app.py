@@ -145,7 +145,6 @@ def generar_pdf(datos, chart_path):
 st.set_page_config(page_title="CableSmart - Análisis N2XSY", layout="centered")
 
 st.markdown("""
-    st.info("🚀 **Versión Beta 1.0:** Esta herramienta se encuentra en fase de pruebas. Agradecemos su comprensión y feedback.")
     <style>
     /* 1. Ocultar menús por defecto de Streamlit */
     #MainMenu {visibility: hidden;} footer {visibility: hidden;} header {visibility: hidden;}
@@ -185,7 +184,7 @@ st.markdown("""
         background-color: #E2E8F0 !important; 
     }
     
-    /* 6. Solución al Checkbox y al Botón Final */
+    /* 6. Solución al Checkbox, Botón Final y Botón de Descarga */
     div[data-testid="stCheckbox"] div[data-baseweb="checkbox"] > div {
         background-color: #ffffff !important;
         border-color: #cbd5e1 !important;
@@ -198,6 +197,12 @@ st.markdown("""
         border-radius: 8px !important; 
         border: none !important; 
         padding: 10px 0 !important; 
+    }
+    /* REGLA DE ORO: Texto blanco para el botón de descarga celeste */
+    .stDownloadButton button, .stDownloadButton p {
+        color: #ffffff !important;
+        -webkit-text-fill-color: #ffffff !important;
+        font-weight: bold !important;
     }
     
     /* 7. Ocultar flechas de números y redondear bloques */
