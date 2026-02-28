@@ -415,7 +415,7 @@ elif modo == "🎓 Modo (Investigación)":
                     f_notas = st.text_area("Observaciones técnicas (opcional)")
 
                     st.markdown("---")
-                    no_robot = st.checkbox("☑️ Confirmo que los datos son correctos y veraces")
+                    no_robot = st.checkbox("Confirmo que los datos son correctos y veraces")
 
                     if st.form_submit_button("Solicitar Código de Verificación al Correo"):
 
