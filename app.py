@@ -210,6 +210,11 @@ st.markdown("""
     input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none !important; margin: 0 !important; }
     input[type=number] { -moz-appearance: textfield !important; }
     div[data-testid="stVerticalBlockBorderWrapper"] { border: 1px solid #E2E8F0 !important; background-color: white !important; border-radius: 10px !important; padding: 15px !important; box-shadow: 0px 2px 4px rgba(0,0,0,0.05) !important; }
+    div[data-testid="stDownloadButton"] button,
+div[data-testid="stDownloadButton"] button p {
+color: #FFFFFF !important;
+font-weight: normal !important;
+}
     </style>
 """, unsafe_allow_html=True)
 
